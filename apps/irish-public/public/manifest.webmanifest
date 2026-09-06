@@ -1,0 +1,9 @@
+﻿{
+  "name": "IRISH — Master AI",
+  "short_name": "IRISH",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F14",
+  "theme_color": "#63E6BE",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DCW">
+  <rect width="64" height="64" fill="#161412"/>
+  <text x="32" y="42" text-anchor="middle" font-size="22" font-family="Georgia, serif" fill="#F3EEE4">DCW</text>
+  <rect x="18" y="48" width="28" height="1.5" fill="#C4B49A"/>
+</svg>

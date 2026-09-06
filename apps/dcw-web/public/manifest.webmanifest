@@ -1,0 +1,9 @@
+{
+  "name": "Devdutta Creative World",
+  "short_name": "DCW",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3EEE4",
+  "theme_color": "#161412",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

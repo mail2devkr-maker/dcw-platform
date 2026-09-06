@@ -1,0 +1,24 @@
+{
+  "name": "dcw-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public websites for Devdutta Creative World and IRISH — Master AI, presented by DCW.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:dcw": "npm run dev -w dcw-web",
+    "dev:irish": "npm run dev -w irish-public",
+    "build": "npm run build -w dcw-web && npm run build -w irish-public",
+    "build:dcw": "npm run build -w dcw-web",
+    "build:irish": "npm run build -w irish-public",
+    "lint": "npm run lint -w dcw-web && npm run lint -w irish-public && npm run lint -w @dcw/brand && npm run lint -w @dcw/config && npm run lint -w @dcw/ui",
+    "typecheck": "npm run typecheck -w @dcw/brand && npm run typecheck -w @dcw/config && npm run typecheck -w @dcw/ui && npm run typecheck -w dcw-web && npm run typecheck -w irish-public",
+    "test": "npm run test -w @dcw/brand && npm run test -w @dcw/config && npm run test -w @dcw/ui && npm run test -w dcw-web && npm run test -w irish-public"
+  },
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "license": "UNLICENSED"
+}

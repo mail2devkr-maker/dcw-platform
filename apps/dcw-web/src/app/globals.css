@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "@dcw/brand/styles.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--canvas);
+  color: var(--ink);
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--metal), transparent);
+}
