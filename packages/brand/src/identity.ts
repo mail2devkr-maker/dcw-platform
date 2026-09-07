@@ -6,10 +6,12 @@ export const DCW = {
 
 export const IRISH = {
   name: "IRISH",
-  productLine: "Master AI, presented by DCW",
+  productLine: "AI Project Execution Platform",
+  positioning: "Master AI, presented by DCW",
+  searchName: "IRISH AI",
   status: "Development preview",
   definition:
-    "A local-first AI developer and operations agent. IRISH plans missions, executes bounded specialist work, records evidence, and asks for approval before privileged publication.",
+    "IRISH is DCW's local-first AI Project Execution Platform for planning, bounded specialist execution, verifiable evidence, validation, and owner-controlled publication.",
 } as const;
 
 export const PUBLIC_HOSTS = {
