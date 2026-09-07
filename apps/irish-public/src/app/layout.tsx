@@ -10,24 +10,47 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono-file", 
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl("irish")),
-  title: { default: `${IRISH.name} — ${IRISH.productLine}`, template: `%s — ${IRISH.name}` },
+  title: { default: `${IRISH.searchName} — ${IRISH.productLine} | DCW`, template: `%s — ${IRISH.name}` },
   description: IRISH.definition,
   applicationName: IRISH.name,
+  keywords: [
+    "IRISH AI",
+    "IRISH DCW",
+    "AI Project Execution Platform",
+    "AI developer agent",
+    "local-first AI",
+    "Devdutta Creative World",
+  ],
+  category: "technology",
+  alternates: { canonical: siteUrl("irish") },
   icons: { icon: "/icon.svg" },
   manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: IRISH.name,
-    applicationCategory: "DeveloperApplication",
-    operatingSystem: "Windows, local-first",
-    creator: { "@type": "Organization", name: "Devdutta Creative World", url: siteUrl("dcw") },
-    offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/PreOrder" },
-    description: IRISH.definition,
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: IRISH.name,
+      alternateName: IRISH.searchName,
+      url: siteUrl("irish"),
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Windows, local-first",
+      creator: { "@type": "Organization", name: "Devdutta Creative World", url: siteUrl("dcw") },
+      offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/PreOrder" },
+      description: IRISH.definition,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: `${IRISH.name} (${IRISH.productLine})`,
+      alternateName: IRISH.searchName,
+      url: siteUrl("irish"),
+      description: IRISH.definition,
+      publisher: { "@type": "Organization", name: "Devdutta Creative World", url: siteUrl("dcw") },
+    },
+  ];
 
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>

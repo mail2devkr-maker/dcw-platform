@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { githubIrishUrl, siteUrl } from "@dcw/brand";
+import { githubIrishUrl, IRISH, siteUrl } from "@dcw/brand";
 import { MobileNav } from "./mobile-nav";
 
 const links = [
@@ -26,9 +26,9 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-[color:var(--line)] bg-[color:var(--canvas)]/85 backdrop-blur-md">
       <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-display text-xl tracking-tight">IRISH</span>
-          <span className="hidden text-xs text-[color:var(--ink-muted)] sm:inline">presented by DCW</span>
+        <Link href="/" className="flex min-w-0 items-baseline gap-2" aria-label={`${IRISH.name} (${IRISH.productLine}) home`}>
+          <span className="font-display shrink-0 text-xl tracking-tight">{IRISH.name}</span>
+          <span className="truncate text-[10px] text-[color:var(--ink-muted)] sm:text-xs">({IRISH.productLine})</span>
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-5 text-sm lg:flex">
           {links.map((link) => (
@@ -55,8 +55,10 @@ export function SiteFooter() {
     <footer className="mt-auto border-t border-[color:var(--line)]">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:px-8 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-display text-2xl">IRISH</p>
-          <p className="mt-2 max-w-sm text-sm text-[color:var(--ink-muted)]">Master AI, presented by DCW. Development preview.</p>
+          <p className="font-display text-2xl">
+            {IRISH.name} <span className="text-base text-[color:var(--ink-muted)]">({IRISH.productLine})</span>
+          </p>
+          <p className="mt-2 max-w-sm text-sm text-[color:var(--ink-muted)]">{IRISH.positioning}. {IRISH.status}.</p>
         </div>
         <ul className="space-y-2 text-sm">
           <li>
