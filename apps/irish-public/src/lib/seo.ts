@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { siteUrl } from "@dcw/brand";
+import { IRISH, siteUrl } from "@dcw/brand";
 
 export function pageMeta(input: { title: string; description: string; path: string }): Metadata {
   const base = siteUrl("irish");
   const url = `${base}${input.path}`;
+  const isHome = input.path === "/";
+  const title = isHome ? `${IRISH.searchName} — ${IRISH.productLine} | DCW` : input.title;
+  const description = isHome ? IRISH.definition : input.description;
+
   return {
-    title: input.title,
-    description: input.description,
+    title,
+    description,
     alternates: { canonical: url },
     openGraph: {
-      title: input.title,
-      description: input.description,
+      title,
+      description,
       url,
       siteName: "IRISH",
       type: "website",
@@ -18,8 +22,8 @@ export function pageMeta(input: { title: string; description: string; path: stri
     },
     twitter: {
       card: "summary_large_image",
-      title: input.title,
-      description: input.description,
+      title,
+      description,
     },
   };
 }
