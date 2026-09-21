@@ -62,7 +62,7 @@ export function SiteFooter() {
         </div>
         <ul className="space-y-2 text-sm">
           <li>
-            <a href={siteUrl("dcw")}>DCW</a>
+            <a href={`${siteUrl("dcw")}/what-is-dcw`}>What is DCW?</a>
           </li>
           <li>
             <a href={githubIrishUrl()}>GitHub</a>
