@@ -84,6 +84,12 @@ export default function HomePage() {
               <p className="text-lg leading-8 text-[#dbe7f5] sm:text-xl">
                 {DCW.definition}
               </p>
+              <Link
+                href="/what-is-dcw"
+                className="mt-5 inline-flex text-sm font-semibold text-cyan-200 transition hover:text-white"
+              >
+                Read the definitive “What is DCW?” page →
+              </Link>
               <div className="ai-rule my-6" />
               <p className="text-sm leading-7 text-[color:var(--ink-muted)]">
                 DCW is not limited to a single category. The common thread is practical software: identify a real

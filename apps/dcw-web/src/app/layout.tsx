@@ -71,8 +71,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "@type": "Organization",
         "@id": `${dcw}/#organization`,
         name: "DCW",
+        alternateName: ["DCW Technology", "DCW Product Development"],
         url: dcw,
         description: DCW.definition,
+        disambiguatingDescription:
+          "DCW on dcw.co.in is a technology and product development brand behind FastQue and IRISH. It is unrelated to other organizations that also use the initials DCW.",
+        brand: [
+          { "@type": "Brand", name: "FastQue", url: "https://fastque.com" },
+          { "@type": "Brand", name: "IRISH", url: siteUrl("irish") },
+        ],
         knowsAbout: [
           "Digital product development",
           "Artificial intelligence",
@@ -86,8 +93,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "@type": "WebSite",
         "@id": `${dcw}/#website`,
         name: "DCW",
+        alternateName: "DCW Technology & Product Development",
         url: dcw,
         description: DCW.definition,
+        about: { "@id": `${dcw}/#organization` },
         publisher: { "@id": `${dcw}/#organization` },
       },
       {
