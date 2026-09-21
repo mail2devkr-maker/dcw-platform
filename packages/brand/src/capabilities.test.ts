@@ -17,9 +17,11 @@ test("capability statuses are only the allowed public set", () => {
   }
 });
 
-test("IRISH is the only launched product", () => {
-  assert.equal(products.length, 1);
-  assert.equal(products[0]?.id, "irish");
+test("DCW public catalog contains FastQue and IRISH without inventing additional launches", () => {
+  assert.equal(products.length, 2);
+  assert.deepEqual(products.map((product) => product.id), ["fastque", "irish"]);
+  assert.equal(products.find((product) => product.id === "fastque")?.status, "live");
+  assert.equal(products.find((product) => product.id === "irish")?.status, "in-development");
 });
 
 test("privileged hosts stay off the public website hostnames", () => {
