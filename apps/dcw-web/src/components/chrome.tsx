@@ -14,7 +14,7 @@ export function SkipLink() {
   return (
     <a
       href="#main"
-      className="absolute left-4 top-0 z-50 -translate-y-full rounded-sm bg-[color:var(--ink)] px-3 py-2 text-sm text-[color:var(--canvas)] focus:translate-y-4"
+      className="absolute left-4 top-0 z-50 -translate-y-full rounded-full bg-[color:var(--accent)] px-4 py-2 text-sm font-semibold text-[#041014] focus:translate-y-4"
     >
       Skip to content
     </a>
@@ -23,25 +23,36 @@ export function SkipLink() {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:var(--line)] bg-[color:var(--canvas)]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#05070d]/78 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
-        <Link href="/" className="flex items-baseline gap-2 no-underline">
-          <span className="font-display text-xl tracking-tight">DCW</span>
-          <span className="hidden text-xs tracking-[0.16em] text-[color:var(--ink-muted)] uppercase sm:inline">
-            Devdutta Creative World
+        <Link href="/" className="group flex items-center gap-3 no-underline" aria-label="DCW home">
+          <span className="relative grid h-9 w-9 place-items-center rounded-xl border border-cyan-300/25 bg-cyan-300/[0.06] font-display text-sm font-bold text-cyan-100 shadow-[0_0_28px_rgba(103,232,249,.08)]">
+            D
+            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-[color:var(--accent)] shadow-[0_0_12px_rgba(103,232,249,.9)]" />
+          </span>
+          <span>
+            <span className="font-display block text-lg font-semibold tracking-[-0.04em] text-white">DCW</span>
+            <span className="hidden text-[9px] font-semibold tracking-[0.16em] text-[color:var(--ink-muted)] uppercase sm:block">
+              Technology + Products
+            </span>
           </span>
         </Link>
+
         <nav aria-label="Primary" className="hidden items-center gap-6 text-sm md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="text-[color:var(--ink-muted)] hover:text-[color:var(--ink)]">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-[color:var(--ink-muted)] transition hover:text-white"
+            >
               {link.label}
             </Link>
           ))}
           <a
             href={siteUrl("irish")}
-            className="rounded-full border border-[color:var(--ink)] px-3.5 py-1.5 text-[color:var(--ink)] hover:bg-[color:var(--ink)] hover:text-[color:var(--canvas)]"
+            className="rounded-full border border-cyan-300/25 bg-cyan-300/[0.05] px-4 py-2 font-semibold text-cyan-100 transition hover:border-cyan-200/60 hover:bg-cyan-300/[0.1]"
           >
-            Explore IRISH
+            IRISH ↗
           </a>
         </nav>
         <MobileNav links={links} cta={{ href: siteUrl("irish"), label: "Explore IRISH" }} />
@@ -53,51 +64,52 @@ export function SiteHeader() {
 export function SiteFooter() {
   const year = new Date().getUTCFullYear();
   return (
-    <footer className="mt-auto border-t border-[color:var(--line)] bg-[color:var(--ink)] text-[color:var(--canvas)]">
+    <footer className="mt-auto border-t border-white/10 bg-[#03050a] text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-display text-2xl">DCW</p>
-          <p className="mt-2 max-w-sm text-sm text-[color:var(--metal)]">
-            Devdutta Creative World builds intelligent digital products with owner control, evidence, and replaceable
-            infrastructure.
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-xl border border-cyan-300/20 bg-cyan-300/[0.05] font-display font-bold text-cyan-100">
+              D
+            </span>
+            <div>
+              <p className="font-display text-2xl font-semibold tracking-[-0.04em]">DCW</p>
+              <p className="text-[10px] tracking-[0.16em] text-[color:var(--metal)] uppercase">
+                Technology + Product Development
+              </p>
+            </div>
+          </div>
+          <p className="mt-5 max-w-md text-sm leading-6 text-[color:var(--metal)]">
+            Digital products, AI-enabled solutions, web platforms, business automation, and emerging software ventures.
           </p>
         </div>
+
         <div>
-          <p className="text-xs tracking-[0.16em] uppercase text-[color:var(--metal)]">DCW</p>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/products">Products</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
+          <p className="text-xs tracking-[0.16em] text-cyan-200 uppercase">Explore</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-300">
+            <li><Link href="/about">About DCW</Link></li>
+            <li><Link href="/products">Products</Link></li>
+            <li><Link href="/capabilities">Capabilities</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>
+
         <div>
-          <p className="text-xs tracking-[0.16em] uppercase text-[color:var(--metal)]">Trust</p>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li>
-              <a href={siteUrl("irish")}>IRISH</a>
-            </li>
-            <li>
-              <Link href="/privacy">Privacy</Link>
-            </li>
-            <li>
-              <Link href="/terms">Terms</Link>
-            </li>
-            <li>
-              <Link href="/security">Security</Link>
-            </li>
+          <p className="text-xs tracking-[0.16em] text-violet-300 uppercase">Products & trust</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-300">
+            <li><a href="https://fastque.com">FastQue</a></li>
+            <li><a href={siteUrl("irish")}>IRISH</a></li>
+            <li><Link href="/privacy">Privacy</Link></li>
+            <li><Link href="/security">Security</Link></li>
+            <li><Link href="/terms">Terms</Link></li>
           </ul>
         </div>
       </div>
+
       <div className="border-t border-white/10">
-        <p className="mx-auto max-w-6xl px-5 py-4 text-xs text-[color:var(--metal)] sm:px-8">
-          © {year} Devdutta Creative World. All rights reserved.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-4 text-xs text-[color:var(--metal)] sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <span>© {year} DCW. All rights reserved.</span>
+          <span>Building useful systems for the real world.</span>
+        </div>
       </div>
     </footer>
   );
