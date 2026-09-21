@@ -1,8 +1,8 @@
 ﻿import { siteUrl } from "@dcw/brand";
 
-export default function sitemap() {
+export default function sitemap(): import("next").MetadataRoute.Sitemap {
   const base = siteUrl("irish");
   return ["", "/product", "/demo", "/architecture", "/security", "/roadmap", "/docs", "/privacy", "/terms"].map(
-    (path) => ({ url: `${base}${path || "/"}`, lastModified: new Date() }),
+    (path) => ({ url: `${base}${path || "/"}` }),
   );
 }

@@ -71,7 +71,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "@type": "Organization",
         "@id": `${dcw}/#organization`,
         name: "DCW",
-        alternateName: ["DCW Technology", "DCW Product Development"],
         url: dcw,
         description: DCW.definition,
         disambiguatingDescription:
@@ -98,20 +97,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         description: DCW.definition,
         about: { "@id": `${dcw}/#organization` },
         publisher: { "@id": `${dcw}/#organization` },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${dcw}/#faq`,
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What is DCW?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: DCW.definition,
-            },
-          },
-        ],
       },
     ],
   };

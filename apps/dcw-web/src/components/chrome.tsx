@@ -3,10 +3,10 @@ import { siteUrl } from "@dcw/brand";
 import { MobileNav } from "./mobile-nav";
 
 const links = [
+  { href: "/what-is-dcw", label: "What is DCW" },
   { href: "/products", label: "Products" },
   { href: "/capabilities", label: "Capabilities" },
   { href: "/about", label: "About" },
-  { href: "/principles", label: "Principles" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -23,7 +23,7 @@ export function SkipLink() {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#05070d]/78 backdrop-blur-xl">
+    <header className="relative sticky top-0 z-40 border-b border-white/10 bg-[#05070d]/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
         <Link href="/" className="group flex items-center gap-3 no-underline" aria-label="DCW home">
           <span className="relative grid h-9 w-9 place-items-center rounded-xl border border-cyan-300/25 bg-cyan-300/[0.06] font-display text-sm font-bold text-cyan-100 shadow-[0_0_28px_rgba(103,232,249,.08)]">
@@ -38,7 +38,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 text-sm md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-5 text-sm lg:flex">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -50,6 +50,7 @@ export function SiteHeader() {
           ))}
           <a
             href={siteUrl("irish")}
+            aria-label="Explore IRISH, a product powered by DCW"
             className="rounded-full border border-cyan-300/25 bg-cyan-300/[0.05] px-4 py-2 font-semibold text-cyan-100 transition hover:border-cyan-200/60 hover:bg-cyan-300/[0.1]"
           >
             IRISH ↗
@@ -79,7 +80,7 @@ export function SiteFooter() {
             </div>
           </div>
           <p className="mt-5 max-w-md text-sm leading-6 text-[color:var(--metal)]">
-            Digital products, AI-enabled solutions, web platforms, business automation, and emerging software ventures.
+            Digital products, AI-enabled solutions, web platforms, and practical automation.
           </p>
         </div>
 
@@ -90,6 +91,7 @@ export function SiteFooter() {
             <li><Link href="/about">About DCW</Link></li>
             <li><Link href="/products">Products</Link></li>
             <li><Link href="/capabilities">Capabilities</Link></li>
+            <li><Link href="/principles">How DCW builds</Link></li>
             <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>
@@ -109,7 +111,7 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-4 text-xs text-[color:var(--metal)] sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <span>© {year} DCW. All rights reserved.</span>
-          <span>Building useful systems for the real world.</span>
+          <span>Technology and products built for practical work.</span>
         </div>
       </div>
     </footer>

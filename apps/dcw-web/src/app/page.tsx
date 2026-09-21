@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { DCW, dcwCapabilities, dcwPrinciples, products, siteUrl } from "@dcw/brand";
+import { DCW, dcwCapabilities, dcwPrinciples, siteUrl } from "@dcw/brand";
 import { Container } from "@dcw/ui";
+import { ProductGrid } from "@/components/product-grid";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -15,21 +16,21 @@ export default function HomePage() {
   return (
     <main id="main" className="dcw-page">
       <section className="relative border-b border-[color:var(--line)]">
-        <Container className="grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:py-32">
+        <Container className="grid gap-12 py-16 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:py-28">
           <div>
             <div className="ai-kicker">
               <span className="ai-kicker-dot" aria-hidden="true" />
               Technology + Product Development
             </div>
 
-            <h1 className="font-display mt-7 max-w-4xl text-5xl leading-[0.98] font-semibold tracking-[-0.055em] sm:text-7xl lg:text-[5.6rem]">
-              Build the next
-              <span className="ai-gradient-text block">useful system.</span>
+            <h1 className="font-display mt-7 max-w-4xl text-5xl leading-[1.02] font-semibold tracking-[-0.055em] sm:text-7xl lg:text-[5rem]">
+              Technology and products,{" "}
+              <span className="ai-gradient-text block">built for practical work.</span>
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[color:var(--ink-muted)] sm:text-xl">
-              DCW builds digital products, AI-enabled solutions, web platforms, mobile experiences, and business
-              automation with practical engineering at the center.
+              DCW is a technology and product development brand. We build digital products, AI-enabled solutions, web
+              platforms, and practical automation. Explore FastQue and IRISH, products powered by DCW.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -40,32 +41,35 @@ export default function HomePage() {
                 Explore products
               </Link>
               <Link
-                href="/contact"
+                href="/what-is-dcw"
                 className="inline-flex min-h-12 items-center rounded-full border border-[color:var(--line-strong)] bg-white/[0.025] px-6 text-sm font-semibold text-white transition hover:border-[color:var(--accent)] hover:bg-white/[0.05]"
               >
-                Start a conversation
+                What is DCW?
               </Link>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-xs tracking-[0.12em] text-[color:var(--ink-muted)] uppercase">
-              <span>AI-enabled systems</span>
-              <span>Product engineering</span>
+              <span>Digital products</span>
+              <span>AI-enabled solutions</span>
+              <span>Web platforms</span>
               <span>Automation</span>
-              <span>Emerging ventures</span>
             </div>
           </div>
 
-          <div className="ai-orbit" aria-label="DCW product system visual">
-            <div className="ai-core">DCW</div>
-            <span className="ai-node left-[8%] top-[12%]">AI systems</span>
-            <span className="ai-node right-[7%] top-[18%]">FastQue</span>
-            <span className="ai-node bottom-[15%] left-[10%]">Automation</span>
-            <span className="ai-node right-[9%] bottom-[11%]">IRISH</span>
-            <div className="absolute inset-x-5 bottom-5 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] tracking-[0.16em] text-[color:var(--ink-muted)] uppercase">
-              <span>DCW Product Network</span>
-              <span className="text-[color:var(--accent)]">Building</span>
+          <aside className="ai-panel p-5 sm:p-7" aria-labelledby="featured-products-title">
+            <div className="mb-5 flex items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold tracking-[0.16em] text-[color:var(--accent)] uppercase">Portfolio</p>
+                <h2 id="featured-products-title" className="font-display mt-2 text-xl font-semibold text-white">
+                  Products powered by DCW
+                </h2>
+              </div>
+              <Link href="/products" className="shrink-0 text-sm font-semibold text-cyan-200 hover:text-white">
+                All products <span aria-hidden="true">→</span>
+              </Link>
             </div>
-          </div>
+            <ProductGrid compact columns={1} headingLevel={3} />
+          </aside>
         </Container>
       </section>
 
@@ -82,7 +86,8 @@ export default function HomePage() {
             </div>
             <div className="ai-panel p-6 sm:p-8">
               <p className="text-lg leading-8 text-[#dbe7f5] sm:text-xl">
-                {DCW.definition}
+                DCW is the public technology and product development brand at dcw.co.in. Its work centers on practical
+                software, and its current public products are FastQue and IRISH.
               </p>
               <Link
                 href="/what-is-dcw"
@@ -96,51 +101,6 @@ export default function HomePage() {
                 problem, build a product around it, automate what should be automated, and keep the system understandable
                 enough to own and evolve.
               </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-b border-[color:var(--line)]">
-        <Container className="py-16 sm:py-24">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-semibold tracking-[0.18em] text-[color:var(--accent)] uppercase">Products</p>
-              <h2 className="font-display mt-3 text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">
-                Powered by DCW.
-              </h2>
-            </div>
-            <p className="max-w-md text-sm leading-6 text-[color:var(--ink-muted)]">
-              Live products and active development projects are shown with their real status.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            {products.map((product) => (
-              <a key={product.id} href={product.href} className="ai-panel ai-card-hover group block p-7 sm:p-8">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="text-[10px] font-bold tracking-[0.18em] text-[color:var(--accent)] uppercase">
-                    {product.status === "live" ? "Live product" : "Active development"}
-                  </span>
-                  <span className="text-sm text-[color:var(--ink-muted)] transition group-hover:translate-x-1">↗</span>
-                </div>
-                <h3 className="font-display mt-6 text-4xl font-semibold tracking-[-0.04em]">{product.name}</h3>
-                <p className="mt-2 text-sm font-semibold text-[#d6e1ef]">{product.line}</p>
-                <p className="mt-5 max-w-xl leading-7 text-[color:var(--ink-muted)]">{product.summary}</p>
-              </a>
-            ))}
-          </div>
-
-          <div className="mt-5 rounded-[1.35rem] border border-dashed border-white/15 bg-white/[0.018] p-6 sm:p-8">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-xs font-semibold tracking-[0.16em] text-[#a78bfa] uppercase">Emerging projects</p>
-                <p className="mt-2 max-w-2xl text-sm leading-7 text-[color:var(--ink-muted)]">
-                  DCW also develops experimental and emerging software projects. They are introduced publicly when
-                  there is something real to show — not before.
-                </p>
-              </div>
-              <span className="font-display text-2xl text-white/45">R&amp;D →</span>
             </div>
           </div>
         </Container>

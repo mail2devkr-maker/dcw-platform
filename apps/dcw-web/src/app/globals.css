@@ -34,10 +34,8 @@ body {
 .dcw-page {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
   background:
-    radial-gradient(circle at 14% 8%, rgba(34, 211, 238, 0.12), transparent 28rem),
-    radial-gradient(circle at 86% 16%, rgba(139, 92, 246, 0.12), transparent 30rem),
+    radial-gradient(circle at 10% 0%, rgba(34, 211, 238, 0.08), transparent 28rem),
     linear-gradient(180deg, #05070d 0%, #070b13 44%, #05070d 100%);
 }
 
@@ -45,24 +43,13 @@ body {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -1;
   pointer-events: none;
   background-image:
     linear-gradient(rgba(103, 232, 249, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(103, 232, 249, 0.035) 1px, transparent 1px);
-  background-size: 54px 54px;
-  mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.65) 48%, transparent 100%);
-}
-
-.dcw-page::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.16;
-  background-image: radial-gradient(circle at center, white 0.7px, transparent 0.8px);
-  background-size: 13px 13px;
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.45) 42%, transparent 82%);
 }
 
 .ai-kicker {
@@ -124,109 +111,7 @@ body {
   opacity: 0.42;
 }
 
-.ai-orbit {
-  position: relative;
-  min-height: 23rem;
-  overflow: hidden;
-  border: 1px solid rgba(103, 232, 249, 0.16);
-  border-radius: 1.6rem;
-  background:
-    radial-gradient(circle at center, rgba(34,211,238,.12), transparent 38%),
-    linear-gradient(180deg, rgba(10,16,28,.92), rgba(6,9,16,.94));
-}
-
-.ai-orbit::before,
-.ai-orbit::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border: 1px solid rgba(103, 232, 249, 0.18);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.ai-orbit::before {
-  width: 17rem;
-  height: 17rem;
-  animation: dcw-spin 18s linear infinite;
-  border-top-color: rgba(103,232,249,.85);
-  border-right-color: rgba(139,92,246,.45);
-}
-
-.ai-orbit::after {
-  width: 11rem;
-  height: 11rem;
-  animation: dcw-spin-reverse 11s linear infinite;
-  border-bottom-color: rgba(94,234,212,.75);
-}
-
-.ai-core {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  display: grid;
-  width: 7.3rem;
-  height: 7.3rem;
-  place-items: center;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgba(103,232,249,.36);
-  border-radius: 2rem;
-  background: linear-gradient(145deg, rgba(103,232,249,.18), rgba(139,92,246,.16));
-  box-shadow: 0 0 70px rgba(34,211,238,.2);
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-
-.ai-node {
-  position: absolute;
-  border: 1px solid rgba(148,163,184,.18);
-  border-radius: 999px;
-  background: rgba(6,10,18,.82);
-  padding: 0.48rem 0.7rem;
-  color: #cbd5e1;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  backdrop-filter: blur(12px);
-}
-
-.ai-card-hover {
-  transition: transform 240ms var(--ease), border-color 240ms var(--ease), background-color 240ms var(--ease);
-}
-
-.ai-card-hover:hover {
-  transform: translateY(-4px);
-  border-color: rgba(103,232,249,.34);
-  background-color: rgba(15,23,42,.88);
-}
-
 .ai-rule {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(103,232,249,.5), rgba(139,92,246,.45), transparent);
-}
-
-@keyframes dcw-spin {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes dcw-spin-reverse {
-  to { transform: translate(-50%, -50%) rotate(-360deg); }
-}
-
-@media (max-width: 640px) {
-  .ai-orbit {
-    min-height: 19rem;
-  }
-
-  .ai-orbit::before {
-    width: 14rem;
-    height: 14rem;
-  }
-
-  .ai-orbit::after {
-    width: 9rem;
-    height: 9rem;
-  }
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { DCW } from "@dcw/brand";
 import { Container } from "@dcw/ui";
 import { pageMeta } from "@/lib/seo";
@@ -36,8 +37,14 @@ export default function AboutPage() {
                 salon businesses and customers, while the other explores AI-assisted project execution.
               </p>
               <p>
-                Additional experimental and emerging projects may appear under DCW when they have a real product story
-                to tell. Public claims are kept separate from private or privileged control surfaces.
+                The public portfolio currently names FastQue and IRISH. DCW keeps product descriptions tied to work
+                that can be explored on its own official destination.
+              </p>
+              <p>
+                For the concise organization and product relationship, read{" "}
+                <Link href="/what-is-dcw" className="font-semibold text-cyan-200 underline decoration-cyan-200/40 underline-offset-4 hover:text-white">
+                  what DCW is and how FastQue and IRISH relate to it
+                </Link>.
               </p>
             </div>
           </div>

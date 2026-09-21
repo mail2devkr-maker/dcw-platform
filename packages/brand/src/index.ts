@@ -6,4 +6,4 @@ export {
   type Capability,
   type CapabilityStatus,
 } from "./capabilities.ts";
-export { products, dcwCapabilities, dcwPrinciples, type Product } from "./catalog.ts";
+export { products, dcwCapabilities, dcwPrinciples, type Product, type ProductStatus } from "./catalog.ts";
