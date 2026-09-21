@@ -2,7 +2,7 @@
   "name": "dcw-platform",
   "version": "0.1.0",
   "private": true,
-  "description": "Public websites for Devdutta Creative World and IRISH — Master AI, presented by DCW.",
+  "description": "Public websites for DCW and IRISH — technology, AI-enabled products, web platforms, and automation.",
   "workspaces": [
     "apps/*",
     "packages/*"
