@@ -19,7 +19,7 @@ export function pageMeta(input: {
       title,
       description: input.description,
       url,
-      siteName: kind === "dcw" ? "Devdutta Creative World" : "IRISH",
+      siteName: kind === "dcw" ? "DCW" : "IRISH",
       type: "website",
       locale: "en_IN",
     },

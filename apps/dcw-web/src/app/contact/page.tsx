@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/contact-form";
 
 export const metadata = pageMeta({
   title: "Contact",
-  description: "Contact Devdutta Creative World about product collaboration, IRISH, or responsible disclosure.",
+  description: "Contact DCW about product collaboration, AI-enabled solutions, FastQue, IRISH, or responsible disclosure.",
   path: "/contact",
 });
 

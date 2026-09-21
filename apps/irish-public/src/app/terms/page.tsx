@@ -16,7 +16,7 @@ export default function TermsPage() {
           <h1 className="font-display mt-4 text-4xl text-[color:var(--ink)] sm:text-5xl">Terms of Use</h1>
           <div className="mt-8 space-y-6 text-sm leading-relaxed text-[color:var(--ink-muted)]">
             <p>
-              The public IRISH application and documentation presented by Devdutta Creative World describe software
+              The public IRISH application and documentation presented by DCW describe software
               currently in development preview. Information, architectural diagrams, and interactive previews are
               provided on an &quot;as-is&quot; basis without warranties of any kind.
             </p>
@@ -26,7 +26,7 @@ export default function TermsPage() {
               exploit, or route unauthorized traffic to private control endpoints is prohibited.
             </p>
             <p>
-              All product names, logos, and trademarks related to IRISH and DCW are proprietary to Devdutta Creative World.
+              All product names, logos, and trademarks related to IRISH and DCW are proprietary to DCW.
               Canonical open-source components, when published, remain governed by their respective repository licenses
               on GitHub.
             </p>

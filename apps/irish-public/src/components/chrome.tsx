@@ -84,7 +84,7 @@ export function SiteFooter() {
         </ul>
       </div>
       <p className="mx-auto max-w-6xl px-5 pb-6 text-xs text-[color:var(--ink-muted)] sm:px-8">
-        © {year} Devdutta Creative World. IRISH is under active development.
+        © {year} DCW. IRISH is under active development.
       </p>
     </footer>
   );

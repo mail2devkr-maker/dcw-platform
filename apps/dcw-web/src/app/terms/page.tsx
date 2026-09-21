@@ -3,7 +3,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Terms",
-  description: "Terms of use for the public Devdutta Creative World website.",
+  description: "Terms of use for the public DCW website.",
   path: "/terms",
 });
 

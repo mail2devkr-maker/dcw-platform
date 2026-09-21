@@ -1,7 +1,9 @@
 export const DCW = {
   shortName: "DCW",
-  legalName: "Devdutta Creative World",
-  tagline: "Building intelligent digital products for the real world.",
+  legalName: "DCW",
+  tagline: "Technology, AI, products, and automation built for the real world.",
+  definition:
+    "DCW is a technology and product development brand focused on building digital products, AI-enabled solutions, web platforms, business automation systems, and practical software ventures. FastQue and IRISH are products powered by DCW, alongside a growing portfolio of experimental and emerging projects.",
 } as const;
 
 export const IRISH = {
