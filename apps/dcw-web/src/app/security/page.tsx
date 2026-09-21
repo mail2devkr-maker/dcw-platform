@@ -3,7 +3,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Security",
-  description: "Security posture and responsible disclosure for Devdutta Creative World public websites.",
+  description: "Security posture and responsible disclosure for DCW public websites.",
   path: "/security",
 });
 
