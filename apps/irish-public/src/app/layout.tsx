@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "AI Project Execution Platform",
     "AI developer agent",
     "local-first AI",
-    "Devdutta Creative World",
+    "DCW technology",
   ],
   category: "technology",
   alternates: { canonical: siteUrl("irish") },
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       url: siteUrl("irish"),
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Windows, local-first",
-      creator: { "@type": "Organization", name: "Devdutta Creative World", url: siteUrl("dcw") },
+      creator: { "@type": "Organization", name: "DCW", url: siteUrl("dcw") },
       offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/PreOrder" },
       description: IRISH.definition,
     },
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       alternateName: IRISH.searchName,
       url: siteUrl("irish"),
       description: IRISH.definition,
-      publisher: { "@type": "Organization", name: "Devdutta Creative World", url: siteUrl("dcw") },
+      publisher: { "@type": "Organization", name: "DCW", url: siteUrl("dcw") },
     },
   ];
 
