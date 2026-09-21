@@ -86,6 +86,7 @@ export function SiteFooter() {
         <div>
           <p className="text-xs tracking-[0.16em] text-cyan-200 uppercase">Explore</p>
           <ul className="mt-3 space-y-2 text-sm text-slate-300">
+            <li><Link href="/what-is-dcw">What is DCW?</Link></li>
             <li><Link href="/about">About DCW</Link></li>
             <li><Link href="/products">Products</Link></li>
             <li><Link href="/capabilities">Capabilities</Link></li>
