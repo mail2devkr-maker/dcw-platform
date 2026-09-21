@@ -1,8 +1,10 @@
-﻿# DCW Platform (`dcw-platform`)
+# DCW Platform (`dcw-platform`)
 
-Public web properties for **Devdutta Creative World (DCW)** and its flagship product, **IRISH — Master AI, presented by DCW**.
+Public web properties for **DCW** and **IRISH — Master AI, presented by DCW**.
 
-Canonical GitHub Repository: [`mail2devkr-maker/dcw-platform`](https://github.com/mail2devkr-maker/dcw-platform)
+DCW is a technology and product development brand focused on building digital products, AI-enabled solutions, web platforms, business automation systems, and practical software ventures. **FastQue** and **IRISH** are products powered by DCW, alongside a growing portfolio of experimental and emerging projects.
+
+Canonical GitHub Repository: `mail2devkr-maker/dcw-platform`
 
 ---
 
@@ -11,12 +13,12 @@ Canonical GitHub Repository: [`mail2devkr-maker/dcw-platform`](https://github.co
 ```
 dcw-platform/
 ├── apps/
-│   ├── dcw-web/          # https://dcw.co.in (Editorial parent brand website)
-│   └── irish-public/     # https://irish.dcw.co.in (Flagship product & interactive command center demo)
+│   ├── dcw-web/          # https://dcw.co.in (Parent brand website)
+│   └── irish-public/     # https://irish.dcw.co.in (IRISH product & demo)
 ├── packages/
 │   ├── brand/            # Brand constants, capability posture matrix, and catalog
 │   ├── config/           # Shared security headers, CSP, hostnames, and redirect utilities
-│   └── ui/               # Shared design system primitives (cn, Container, Eyebrow, StatusBadge)
+│   └── ui/               # Shared design-system primitives
 └── .github/workflows/    # Automated CI verification gate
 ```
 
@@ -26,42 +28,37 @@ dcw-platform/
 
 | Hostname | Role | Status / Target |
 | :--- | :--- | :--- |
-| `dcw.co.in` | Parent Brand Website | Production (`apps/dcw-web`) |
+| `dcw.co.in` | Parent Brand Website | Production target (`apps/dcw-web`) |
 | `www.dcw.co.in` | Canonical Redirect | 308 Permanent Redirect to `https://dcw.co.in` |
-| `irish.dcw.co.in` | Flagship Product & Demo | Production (`apps/irish-public`) |
-| `mcp.dcw.co.in` | **Privileged / Private** | **STRICTLY ISOLATED** (Owner MCP endpoint; never mapped to public web) |
-| `auth.dcw.co.in` | **Privileged / Private** | **STRICTLY ISOLATED** (Owner OAuth server; never mapped to public web) |
+| `irish.dcw.co.in` | IRISH Product & Demo | Production target (`apps/irish-public`) |
+| `mcp.dcw.co.in` | **Privileged / Private** | **STRICTLY ISOLATED** |
+| `auth.dcw.co.in` | **Privileged / Private** | **STRICTLY ISOLATED** |
+
+---
+
+## Public Product Portfolio
+
+- **FastQue** — live salon booking, queue, and operations platform.
+- **IRISH** — AI Project Execution Platform in active development.
+- Additional experimental and emerging projects are listed only when there is something real to describe.
 
 ---
 
 ## Capability Posture
 
-In accordance with our core engineering principle of **Evidence Before Claims**, capabilities are categorized strictly by automated test evidence:
-
-* **Live / Verified**: Projects, Mission planning, Developer specialist, Mission instructions, Diff review, Validation, Approval workflow, Runtime status, Mission report, GitHub PR workflow.
-* **In Development**: Provider routing, BOSS control architecture, MCP, OAuth.
-* **Planned**: Web Intelligence (Held behind formal verification and grounding benchmarks).
+In accordance with **Evidence Before Claims**, capabilities are categorized by implementation and verification status.
 
 ---
 
 ## Local Development & Verification Gate
 
-Ensure Node.js `>=22.16.0` (Node 24 recommended) is installed.
+Use Node.js `>=22.16.0` (Node 24 recommended).
 
 ```bash
-# Clean dependency installation
 npm ci
-
-# Full multi-workspace typecheck
 npm run typecheck
-
-# Full multi-workspace static analysis (zero warnings allowed)
 npm run lint
-
-# Comprehensive unit test harness
 npm test
-
-# Production build for both applications
 npm run build
 ```
 
@@ -69,4 +66,4 @@ npm run build
 
 ## License
 
-All rights reserved © Devdutta Creative World.
+All rights reserved © DCW.
