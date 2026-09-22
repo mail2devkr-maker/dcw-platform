@@ -9,6 +9,7 @@ const links = [
   { href: "/security", label: "Security" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/docs", label: "Docs" },
+  { href: `${siteUrl("dcw")}/what-is-dcw`, label: "About DCW" },
 ];
 
 export function SkipLink() {

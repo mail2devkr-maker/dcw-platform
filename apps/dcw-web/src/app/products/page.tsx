@@ -1,52 +1,82 @@
-import { products } from "@dcw/brand";
+import Link from "next/link";
+import { products, siteUrl } from "@dcw/brand";
 import { Container } from "@dcw/ui";
+import { ProductGrid } from "@/components/product-grid";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Products",
-  description: "Explore products powered by DCW, including FastQue and IRISH.",
+  description: "Discover FastQue, DCW's live salon and barbershop platform, and IRISH, a development preview for AI-assisted software missions.",
   path: "/products",
 });
 
 export default function ProductsPage() {
+  const dcwUrl = siteUrl("dcw");
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${dcwUrl}/products#webpage`,
+        url: `${dcwUrl}/products`,
+        name: "DCW Products",
+        description: "Software products powered by DCW, with current status and official destinations.",
+        isPartOf: { "@id": `${dcwUrl}/#website` },
+        about: { "@id": `${dcwUrl}/#organization` },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${dcwUrl}/products#product-list`,
+        name: "Products powered by DCW",
+        itemListElement: products.map((product, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "SoftwareApplication",
+            name: product.name,
+            category: product.category,
+            url: product.href,
+            description: product.summary,
+            creator: { "@id": `${dcwUrl}/#organization` },
+          },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "DCW", item: dcwUrl },
+          { "@type": "ListItem", position: 2, name: "Products", item: `${dcwUrl}/products` },
+        ],
+      },
+    ],
+  };
+
   return (
     <main id="main" className="dcw-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Container className="py-16 sm:py-24">
         <div className="ai-kicker">
           <span className="ai-kicker-dot" aria-hidden="true" />
-          DCW Products
+          The DCW portfolio
         </div>
         <h1 className="font-display mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl">
-          Products with different missions, built under one technology brand.
+          Two products. Different problems. One technology brand.
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--ink-muted)]">
-          The catalog distinguishes live products from active development. Experimental work is not presented as
-          launched before it is ready to be described publicly.
+          FastQue and IRISH are products powered by DCW. Their current status and official destinations are stated
+          plainly; work that is not ready to describe is not presented as a launched product.
         </p>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          {products.map((product) => (
-            <a key={product.id} href={product.href} className="ai-panel ai-card-hover group block p-7 sm:p-9">
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-[10px] font-bold tracking-[0.18em] text-[color:var(--accent)] uppercase">
-                  {product.status === "live" ? "Live product" : "Active development"}
-                </span>
-                <span className="text-[color:var(--ink-muted)] transition group-hover:translate-x-1">↗</span>
-              </div>
-              <h2 className="font-display mt-8 text-4xl font-semibold tracking-[-0.04em]">{product.name}</h2>
-              <p className="mt-2 text-sm font-semibold text-slate-200">{product.line}</p>
-              <p className="mt-5 leading-7 text-[color:var(--ink-muted)]">{product.summary}</p>
-            </a>
-          ))}
+        <div className="mt-12">
+          <ProductGrid headingLevel={2} />
         </div>
 
-        <div className="mt-6 rounded-[1.35rem] border border-dashed border-white/15 bg-white/[0.018] p-7">
-          <p className="text-xs font-semibold tracking-[0.18em] text-violet-300 uppercase">Emerging projects</p>
-          <p className="mt-3 max-w-3xl leading-7 text-[color:var(--ink-muted)]">
-            DCW also explores additional software and AI ideas. They remain experiments until there is enough real
-            implementation to describe them responsibly.
-          </p>
-        </div>
+        <p className="mt-10 max-w-3xl leading-7 text-[color:var(--ink-muted)]">
+          Want the short explanation of the organization behind these products?{" "}
+          <Link href="/what-is-dcw" className="font-semibold text-cyan-200 underline decoration-cyan-200/40 underline-offset-4 hover:text-white">
+            Read what DCW is and how FastQue and IRISH relate to it.
+          </Link>
+        </p>
       </Container>
     </main>
   );

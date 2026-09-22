@@ -35,23 +35,25 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4" noValidate>
+    <form onSubmit={onSubmit} className="space-y-4">
       <div className="hidden" aria-hidden="true">
         <label>
           Company website
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
-      <Field label="Name" name="name" required />
-      <Field label="Email" name="email" type="email" required />
-      <Field label="Subject" name="subject" required />
+      <Field label="Name" name="name" required maxLength={120} autoComplete="name" />
+      <Field label="Email" name="email" type="email" required maxLength={254} autoComplete="email" />
+      <Field label="Subject" name="subject" required maxLength={140} />
       <label className="block text-sm font-semibold">
         Message
         <textarea
           name="body"
           required
           minLength={20}
+          maxLength={5000}
           rows={6}
+          id="body"
           className="mt-1 w-full rounded-md border border-[color:var(--line-strong)] bg-[color:var(--surface)] px-3 py-2 text-base font-normal"
         />
       </label>
@@ -65,13 +67,15 @@ export function ContactForm() {
       <div aria-live="polite" className="min-h-6 text-sm">
         {state === "success" ? (
           <p>
-            Message accepted.{" "}
             {mailto ? (
-              <a className="font-semibold underline" href={mailto}>
-                Open a mail draft
-              </a>
+              <>
+                Review and send your message from your email app using this{" "}
+                <a className="font-semibold underline" href={mailto}>
+                  email draft
+                </a>.
+              </>
             ) : (
-              "If a delivery webhook is configured, it has been notified."
+              "Your message was accepted for delivery."
             )}
           </p>
         ) : null}
@@ -86,19 +90,26 @@ function Field({
   name,
   type = "text",
   required,
+  maxLength,
+  autoComplete,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  maxLength?: number;
+  autoComplete?: string;
 }) {
   return (
     <label className="block text-sm font-semibold">
       {label}
       <input
+        id={name}
         name={name}
         type={type}
         required={required}
+        maxLength={maxLength}
+        autoComplete={autoComplete}
         className="mt-1 w-full rounded-md border border-[color:var(--line-strong)] bg-[color:var(--surface)] px-3 py-2 text-base font-normal"
       />
     </label>

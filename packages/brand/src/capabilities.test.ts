@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { irishCapabilities } from "./capabilities.ts";
 import { products } from "./catalog.ts";
-import { PRIVILEGED_HOSTS, PUBLIC_HOSTS } from "./identity.ts";
+import { DCW, PRIVILEGED_HOSTS, PUBLIC_HOSTS } from "./identity.ts";
 
 test("Web Intelligence is never advertised as live", () => {
   const web = irishCapabilities.find((item) => item.id === "web-intelligence");
@@ -21,7 +21,15 @@ test("DCW public catalog contains FastQue and IRISH without inventing additional
   assert.equal(products.length, 2);
   assert.deepEqual(products.map((product) => product.id), ["fastque", "irish"]);
   assert.equal(products.find((product) => product.id === "fastque")?.status, "live");
-  assert.equal(products.find((product) => product.id === "irish")?.status, "in-development");
+  assert.equal(products.find((product) => product.id === "irish")?.status, "development-preview");
+  assert.deepEqual(products.map((product) => product.href), ["https://fastque.com", "https://irish.dcw.co.in"]);
+  assert.ok(products.every((product) => product.category && product.summary && product.ctaLabel && product.statusLabel));
+});
+
+test("DCW definition names only the verified public products", () => {
+  assert.match(DCW.definition, /technology and product development brand/);
+  assert.match(DCW.definition, /FastQue and IRISH are products powered by DCW/);
+  assert.doesNotMatch(DCW.definition, /ASHENGRID|LAM360|emerging projects/i);
 });
 
 test("privileged hosts stay off the public website hostnames", () => {

@@ -1,32 +1,38 @@
-export type ProductStatus = "live" | "flagship" | "in-development";
+export type ProductStatus = "live" | "development-preview";
 
 export type Product = {
   id: string;
   name: string;
-  line: string;
+  category: string;
   href: string;
   status: ProductStatus;
+  statusLabel: string;
   summary: string;
+  ctaLabel: string;
 };
 
 export const products: readonly Product[] = [
   {
     id: "fastque",
     name: "FastQue",
-    line: "Salon booking, queue, and operations platform",
+    category: "Salon and barbershop platform",
     href: "https://fastque.com",
     status: "live",
+    statusLabel: "Live product",
     summary:
-      "A digital platform for salon discovery, online booking, queue operations, staff workflows, customer engagement, and shop management.",
+      "A platform for discovering salons, booking services, managing queues, and running shop operations.",
+    ctaLabel: "Visit FastQue",
   },
   {
     id: "irish",
     name: "IRISH",
-    line: "Master AI, presented by DCW",
+    category: "AI project-execution platform",
     href: "https://irish.dcw.co.in",
-    status: "in-development",
+    status: "development-preview",
+    statusLabel: "Development preview",
     summary:
-      "Local-first AI for software missions: planning, bounded execution, evidence, validation, and owner approval before publication.",
+      "Local-first AI for software missions, with bounded execution, verifiable evidence, and a public read-only demo.",
+    ctaLabel: "Explore IRISH",
   },
 ];
 
@@ -56,8 +62,8 @@ export const dcwCapabilities = [
     body: "Local-first engineering, GitHub-centered delivery, validation gates, reproducible builds, and replaceable infrastructure.",
   },
   {
-    title: "Emerging software ventures",
-    body: "DCW also explores new product ideas and experimental projects where software, automation, and AI can solve a concrete problem.",
+    title: "Practical software ventures",
+    body: "Product ideas are grounded in concrete problems, with public descriptions limited to work that can be verified.",
   },
 ] as const;
 

@@ -32,13 +32,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
+      "@id": `${siteUrl("irish")}/#software-application`,
       name: IRISH.name,
       alternateName: IRISH.searchName,
       url: siteUrl("irish"),
       applicationCategory: "DeveloperApplication",
-      operatingSystem: "Windows, local-first",
-      creator: { "@type": "Organization", name: "DCW", url: siteUrl("dcw") },
-      offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/PreOrder" },
+      creator: { "@id": `${siteUrl("dcw")}/#organization`, "@type": "Organization", name: "DCW", url: siteUrl("dcw") },
       description: IRISH.definition,
     },
     {
@@ -48,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       alternateName: IRISH.searchName,
       url: siteUrl("irish"),
       description: IRISH.definition,
-      publisher: { "@type": "Organization", name: "DCW", url: siteUrl("dcw") },
+      publisher: { "@id": `${siteUrl("dcw")}/#organization`, "@type": "Organization", name: "DCW", url: siteUrl("dcw") },
     },
   ];
 

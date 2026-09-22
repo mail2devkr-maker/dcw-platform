@@ -1,6 +1,7 @@
 import { siteUrl } from "@dcw/brand";
+import type { MetadataRoute } from "next";
 
-export default function sitemap() {
+export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteUrl("dcw");
   const pages = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },
@@ -17,7 +18,6 @@ export default function sitemap() {
 
   return pages.map(({ path, priority, changeFrequency }) => ({
     url: `${base}${path || "/"}`,
-    lastModified: new Date(),
     changeFrequency,
     priority,
   }));

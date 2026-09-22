@@ -9,7 +9,7 @@ export const metadata = pageMeta({
 
 export default function TermsPage() {
   return (
-    <main id="main">
+    <main id="main" className="dcw-page">
       <Container className="py-16 sm:py-20">
         <Eyebrow>Legal</Eyebrow>
         <h1 className="font-display mt-3 text-4xl">Terms</h1>

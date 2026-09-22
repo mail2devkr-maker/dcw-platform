@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { DCW, products, siteUrl } from "@dcw/brand";
+import { DCW, siteUrl } from "@dcw/brand";
 import { Container } from "@dcw/ui";
+import { ProductGrid } from "@/components/product-grid";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -170,20 +171,8 @@ export default function WhatIsDcwPage() {
             Products make the brand concrete.
           </h2>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            {products.map((product) => (
-              <a key={product.id} href={product.href} className="ai-panel ai-card-hover group block p-7 sm:p-8">
-                <span className="text-[10px] font-bold tracking-[0.18em] text-[color:var(--accent)] uppercase">
-                  {product.status === "live" ? "Live product" : "Active development"}
-                </span>
-                <h3 className="font-display mt-5 text-3xl font-semibold tracking-[-0.04em]">{product.name}</h3>
-                <p className="mt-2 text-sm font-semibold text-slate-200">{product.line}</p>
-                <p className="mt-4 leading-7 text-[color:var(--ink-muted)]">{product.summary}</p>
-                <span className="mt-5 inline-flex text-sm font-semibold text-cyan-200 transition group-hover:translate-x-1">
-                  Visit {product.name} ↗
-                </span>
-              </a>
-            ))}
+          <div className="mt-10">
+            <ProductGrid compact headingLevel={3} />
           </div>
         </Container>
       </section>

@@ -1,9 +1,9 @@
 export const DCW = {
   shortName: "DCW",
-  legalName: "DCW",
-  tagline: "Technology, AI, products, and automation built for the real world.",
+  publicName: "DCW",
+  tagline: "Technology and product development for practical work.",
   definition:
-    "DCW is a technology and product development brand focused on building digital products, AI-enabled solutions, web platforms, business automation systems, and practical software ventures. FastQue and IRISH are products powered by DCW, alongside a growing portfolio of experimental and emerging projects.",
+    "DCW is a technology and product development brand focused on digital products, AI-enabled solutions, web platforms, business automation systems, and practical software ventures. FastQue and IRISH are products powered by DCW.",
 } as const;
 
 export const IRISH = {
