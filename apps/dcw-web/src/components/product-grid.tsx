@@ -1,5 +1,6 @@
 import { products } from "@dcw/brand";
 import { StatusBadge } from "@dcw/ui";
+import Link from "next/link";
 
 type ProductGridProps = {
   compact?: boolean;
@@ -27,12 +28,20 @@ export function ProductGrid({ compact = false, columns = 2, headingLevel = 2 }: 
             {product.name}
           </Heading>
           <p className="mt-3 flex-1 leading-7 text-[color:var(--ink-muted)]">{product.summary}</p>
-          <a
-            href={product.href}
-            className="mt-6 inline-flex min-h-11 w-fit items-center rounded-full border border-[color:var(--line-strong)] px-4 text-sm font-semibold text-white transition hover:border-[color:var(--accent)] hover:bg-white/[0.05] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
-          >
-            {product.ctaLabel} <span aria-hidden="true" className="ml-2">↗</span>
-          </a>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <Link
+              href={product.learnMorePath}
+              className="inline-flex min-h-11 w-fit items-center rounded-full bg-[color:var(--accent)] px-4 text-sm font-bold text-[#041014] transition hover:brightness-110 focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
+            >
+              Product overview <span aria-hidden="true" className="ml-2">→</span>
+            </Link>
+            <a
+              href={product.href}
+              className="inline-flex min-h-11 w-fit items-center rounded-full border border-[color:var(--line-strong)] px-4 text-sm font-semibold text-white transition hover:border-[color:var(--accent)] hover:bg-white/[0.05] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
+            >
+              {product.ctaLabel} <span aria-hidden="true" className="ml-2">↗</span>
+            </a>
+          </div>
         </article>
       ))}
     </div>

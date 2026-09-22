@@ -5,6 +5,7 @@ export type Product = {
   name: string;
   category: string;
   href: string;
+  learnMorePath: string;
   status: ProductStatus;
   statusLabel: string;
   summary: string;
@@ -17,6 +18,7 @@ export const products: readonly Product[] = [
     name: "FastQue",
     category: "Salon and barbershop platform",
     href: "https://fastque.com",
+    learnMorePath: "/products/fastque",
     status: "live",
     statusLabel: "Live product",
     summary:
@@ -28,6 +30,7 @@ export const products: readonly Product[] = [
     name: "IRISH",
     category: "AI project-execution platform",
     href: "https://irish.dcw.co.in",
+    learnMorePath: "/products/irish",
     status: "development-preview",
     statusLabel: "Development preview",
     summary:

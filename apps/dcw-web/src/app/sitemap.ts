@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "", priority: 1, changeFrequency: "weekly" as const },
     { path: "/what-is-dcw", priority: 0.95, changeFrequency: "monthly" as const },
     { path: "/products", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/products/fastque", priority: 0.85, changeFrequency: "monthly" as const },
+    { path: "/products/irish", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/capabilities", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/principles", priority: 0.6, changeFrequency: "monthly" as const },

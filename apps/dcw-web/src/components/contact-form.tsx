@@ -60,11 +60,12 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={state === "submitting"}
+        aria-busy={state === "submitting"}
         className="inline-flex min-h-11 min-w-32 items-center justify-center rounded-full bg-[color:var(--ink)] px-5 text-sm font-semibold text-[color:var(--canvas)] disabled:opacity-60"
       >
         {state === "submitting" ? "Sending…" : "Send message"}
       </button>
-      <div aria-live="polite" className="min-h-6 text-sm">
+      <div aria-live="polite" role={state === "error" ? "alert" : "status"} className="min-h-6 text-sm">
         {state === "success" ? (
           <p>
             {mailto ? (
