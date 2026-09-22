@@ -23,6 +23,7 @@ test("DCW public catalog contains FastQue and IRISH without inventing additional
   assert.equal(products.find((product) => product.id === "fastque")?.status, "live");
   assert.equal(products.find((product) => product.id === "irish")?.status, "development-preview");
   assert.deepEqual(products.map((product) => product.href), ["https://fastque.com", "https://irish.dcw.co.in"]);
+  assert.deepEqual(products.map((product) => product.learnMorePath), ["/products/fastque", "/products/irish"]);
   assert.ok(products.every((product) => product.category && product.summary && product.ctaLabel && product.statusLabel));
 });
 
