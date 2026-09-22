@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl("irish")),
   title: { default: `${IRISH.searchName} — ${IRISH.productLine} | DCW`, template: `%s — ${IRISH.name}` },
   description: IRISH.definition,
+  openGraph: {
+    title: `${IRISH.searchName} — ${IRISH.productLine} | DCW`,
+    description: IRISH.definition,
+    url: siteUrl("irish"),
+    siteName: "IRISH",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${IRISH.searchName} — ${IRISH.productLine} | DCW`,
+    description: IRISH.definition,
+  },
   applicationName: IRISH.name,
   keywords: [
     "IRISH AI",
@@ -28,26 +41,30 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const irishUrl = siteUrl("irish");
+  const dcwUrl = siteUrl("dcw");
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "@id": `${siteUrl("irish")}/#software-application`,
+      "@id": `${irishUrl}/#software-application`,
       name: IRISH.name,
       alternateName: IRISH.searchName,
-      url: siteUrl("irish"),
+      url: irishUrl,
       applicationCategory: "DeveloperApplication",
-      creator: { "@id": `${siteUrl("dcw")}/#organization`, "@type": "Organization", name: "DCW", url: siteUrl("dcw") },
+      creator: { "@id": `${dcwUrl}/#organization` },
       description: IRISH.definition,
     },
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${irishUrl}/#website`,
       name: `${IRISH.name} (${IRISH.productLine})`,
       alternateName: IRISH.searchName,
-      url: siteUrl("irish"),
+      url: irishUrl,
       description: IRISH.definition,
-      publisher: { "@id": `${siteUrl("dcw")}/#organization`, "@type": "Organization", name: "DCW", url: siteUrl("dcw") },
+      isPartOf: { "@id": `${dcwUrl}/#website` },
+      publisher: { "@id": `${dcwUrl}/#organization` },
     },
   ];
 
