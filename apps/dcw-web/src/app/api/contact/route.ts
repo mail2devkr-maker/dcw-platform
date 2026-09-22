@@ -54,6 +54,13 @@ function isEmail(value: string): boolean {
 }
 
 export async function POST(request: Request) {
+  const contentTypeHeader = request.headers.get("content-type");
+  const [contentTypeValue] = contentTypeHeader ? contentTypeHeader.split(";", 1) : [];
+  const contentType = contentTypeValue?.trim().toLowerCase();
+  if (contentType !== "application/json") {
+    return jsonResponse({ ok: false, error: "Please submit the contact form again." }, { status: 415 });
+  }
+
   let rawBody: string;
   try {
     const body = await readBoundedBody(request);

@@ -61,15 +61,28 @@ test("contact route offers a mail draft without claiming the message was sent", 
 test("contact route rejects malformed and oversized requests", async () => {
   const malformed = await POST(new Request("https://dcw.co.in/api/contact", {
     method: "POST",
+    headers: { "content-type": "application/json" },
     body: "{",
   }));
   const oversized = await POST(new Request("https://dcw.co.in/api/contact", {
     method: "POST",
+    headers: { "content-type": "application/json" },
     body: JSON.stringify({ ...validPayload, body: "x".repeat(13_000) }),
   }));
 
   assert.equal(malformed.status, 400);
   assert.equal(oversized.status, 413);
+});
+
+test("contact route rejects non-JSON submissions before reading the body", async () => {
+  const response = await POST(new Request("https://dcw.co.in/api/contact", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body: "name=Alex",
+  }));
+
+  assert.equal(response.status, 415);
+  assert.equal(response.headers.get("cache-control"), "no-store");
 });
 
 test("contact route rejects malformed webhook configuration without making a request", async (t) => {
@@ -108,9 +121,55 @@ test("contact route stops reading an oversized streamed body as soon as it cross
     { highWaterMark: 0 },
   );
 
-  const response = await POST({ headers: new Headers(), body } as Request);
+  const response = await POST({ headers: new Headers({ "content-type": "application/json" }), body } as Request);
 
   assert.equal(response.status, 413);
   assert.equal(chunksRead, 2);
   assert.equal(cancelled, true);
+});
+
+test("contact route reports webhook non-2xx responses without claiming delivery", async (t) => {
+  const previousWebhook = process.env.CONTACT_WEBHOOK_URL;
+  const previousEmail = process.env.CONTACT_TO_EMAIL;
+  const previousFetch = globalThis.fetch;
+  t.after(() => {
+    restoreEnv("CONTACT_WEBHOOK_URL", previousWebhook);
+    restoreEnv("CONTACT_TO_EMAIL", previousEmail);
+    globalThis.fetch = previousFetch;
+  });
+  process.env.CONTACT_WEBHOOK_URL = "https://hooks.example.test/contact";
+  delete process.env.CONTACT_TO_EMAIL;
+  globalThis.fetch = async () => new Response("unavailable", { status: 503 });
+
+  const response = await POST(new Request("https://dcw.co.in/api/contact", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(validPayload),
+  }));
+
+  assert.equal(response.status, 502);
+  assert.equal((await response.json()).ok, false);
+});
+
+test("contact route reports webhook network failures without claiming delivery", async (t) => {
+  const previousWebhook = process.env.CONTACT_WEBHOOK_URL;
+  const previousEmail = process.env.CONTACT_TO_EMAIL;
+  const previousFetch = globalThis.fetch;
+  t.after(() => {
+    restoreEnv("CONTACT_WEBHOOK_URL", previousWebhook);
+    restoreEnv("CONTACT_TO_EMAIL", previousEmail);
+    globalThis.fetch = previousFetch;
+  });
+  process.env.CONTACT_WEBHOOK_URL = "https://hooks.example.test/contact";
+  delete process.env.CONTACT_TO_EMAIL;
+  globalThis.fetch = async () => { throw new Error("simulated timeout"); };
+
+  const response = await POST(new Request("https://dcw.co.in/api/contact", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(validPayload),
+  }));
+
+  assert.equal(response.status, 502);
+  assert.equal((await response.json()).ok, false);
 });
