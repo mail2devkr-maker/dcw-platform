@@ -34,10 +34,9 @@ export const PUBLIC_URLS = {
 } as const;
 
 export function siteUrl(kind: "dcw" | "irish"): string {
-  if (kind === "dcw") {
-    return process.env.NEXT_PUBLIC_DCW_URL ?? PUBLIC_URLS.dcw;
-  }
-  return process.env.NEXT_PUBLIC_IRISH_URL ?? PUBLIC_URLS.irish;
+  const configured = kind === "dcw" ? process.env.NEXT_PUBLIC_DCW_URL : process.env.NEXT_PUBLIC_IRISH_URL;
+  const fallback = kind === "dcw" ? PUBLIC_URLS.dcw : PUBLIC_URLS.irish;
+  return (configured ?? fallback).replace(/\/+$/, "");
 }
 
 export function githubIrishUrl(): string {

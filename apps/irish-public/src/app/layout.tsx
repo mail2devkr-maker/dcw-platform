@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl("irish")),
   title: { default: `${IRISH.searchName} — ${IRISH.productLine} | DCW`, template: `%s — ${IRISH.name}` },
   description: IRISH.definition,
+  openGraph: {
+    title: `${IRISH.searchName} — ${IRISH.productLine} | DCW`,
+    description: IRISH.definition,
+    url: siteUrl("irish"),
+    siteName: "IRISH",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${IRISH.searchName} — ${IRISH.productLine} | DCW`,
+    description: IRISH.definition,
+  },
   applicationName: IRISH.name,
   keywords: [
     "IRISH AI",

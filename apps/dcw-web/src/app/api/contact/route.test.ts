@@ -32,6 +32,7 @@ test("contact route reports unavailable delivery instead of claiming a send", as
 
   assert.equal(response.status, 503);
   assert.equal((await response.json()).ok, false);
+  assert.equal(response.headers.get("cache-control"), "no-store");
 });
 
 test("contact route offers a mail draft without claiming the message was sent", async (t) => {
@@ -54,6 +55,7 @@ test("contact route offers a mail draft without claiming the message was sent", 
   assert.equal(response.status, 200);
   assert.equal(payload.ok, true);
   assert.match(payload.mailto, /^mailto:/);
+  assert.equal(response.headers.get("cache-control"), "no-store");
 });
 
 test("contact route rejects malformed and oversized requests", async () => {
@@ -68,6 +70,26 @@ test("contact route rejects malformed and oversized requests", async () => {
 
   assert.equal(malformed.status, 400);
   assert.equal(oversized.status, 413);
+});
+
+test("contact route rejects malformed webhook configuration without making a request", async (t) => {
+  const previousWebhook = process.env.CONTACT_WEBHOOK_URL;
+  const previousEmail = process.env.CONTACT_TO_EMAIL;
+  t.after(() => {
+    restoreEnv("CONTACT_WEBHOOK_URL", previousWebhook);
+    restoreEnv("CONTACT_TO_EMAIL", previousEmail);
+  });
+  process.env.CONTACT_WEBHOOK_URL = "javascript:alert(1)";
+  delete process.env.CONTACT_TO_EMAIL;
+
+  const response = await POST(new Request("https://dcw.co.in/api/contact", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(validPayload),
+  }));
+
+  assert.equal(response.status, 502);
+  assert.equal((await response.json()).ok, false);
 });
 
 test("contact route stops reading an oversized streamed body as soon as it crosses the limit", async () => {

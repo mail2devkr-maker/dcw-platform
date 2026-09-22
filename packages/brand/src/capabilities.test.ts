@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { irishCapabilities } from "./capabilities.ts";
 import { products } from "./catalog.ts";
-import { DCW, PRIVILEGED_HOSTS, PUBLIC_HOSTS } from "./identity.ts";
+import { DCW, PRIVILEGED_HOSTS, PUBLIC_HOSTS, PUBLIC_URLS, siteUrl } from "./identity.ts";
 
 test("Web Intelligence is never advertised as live", () => {
   const web = irishCapabilities.find((item) => item.id === "web-intelligence");
@@ -40,4 +40,31 @@ test("privileged hosts stay off the public website hostnames", () => {
   assert.notEqual(PRIVILEGED_HOSTS.mcp, PUBLIC_HOSTS.irish);
   assert.doesNotMatch(PRIVILEGED_HOSTS.mcp, /irish\.dcw/);
   assert.doesNotMatch(PRIVILEGED_HOSTS.auth, /irish\.dcw/);
+});
+
+test("siteUrl normalizes configured trailing slashes for canonical URL composition", () => {
+  const previous = process.env.NEXT_PUBLIC_DCW_URL;
+  process.env.NEXT_PUBLIC_DCW_URL = "https://example.test///";
+  try {
+    assert.equal(siteUrl("dcw"), "https://example.test");
+  } finally {
+    if (previous === undefined) delete process.env.NEXT_PUBLIC_DCW_URL;
+    else process.env.NEXT_PUBLIC_DCW_URL = previous;
+  }
+});
+
+test("siteUrl keeps verified public defaults", () => {
+  const previousDcw = process.env.NEXT_PUBLIC_DCW_URL;
+  const previousIrish = process.env.NEXT_PUBLIC_IRISH_URL;
+  delete process.env.NEXT_PUBLIC_DCW_URL;
+  delete process.env.NEXT_PUBLIC_IRISH_URL;
+  try {
+    assert.equal(siteUrl("dcw"), PUBLIC_URLS.dcw);
+    assert.equal(siteUrl("irish"), PUBLIC_URLS.irish);
+  } finally {
+    if (previousDcw === undefined) delete process.env.NEXT_PUBLIC_DCW_URL;
+    else process.env.NEXT_PUBLIC_DCW_URL = previousDcw;
+    if (previousIrish === undefined) delete process.env.NEXT_PUBLIC_IRISH_URL;
+    else process.env.NEXT_PUBLIC_IRISH_URL = previousIrish;
+  }
 });
