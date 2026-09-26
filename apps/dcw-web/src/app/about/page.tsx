@@ -35,7 +35,7 @@ export default function AboutPage() {
               <p>
                 FastQue and IRISH represent two different product directions inside that model: one is an operating
                 platform for salon businesses and customers, while the other explores AI-assisted project execution.
-                LAM360 extends that work into privacy-first remote monitoring, while ASHENGRID: SURVIVAL is DCW Games'
+                LAM360 extends that work into privacy-first remote monitoring, while ASHENGRID: SURVIVAL is DCW Games&apos;
                 original portrait survival-shooter project. Swarnanjali Jewels shows the same product discipline applied
                 to a client-facing luxury e-commerce platform.
               </p>
