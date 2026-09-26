@@ -30,7 +30,8 @@ export default function HomePage() {
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[color:var(--ink-muted)] sm:text-xl">
               DCW is a technology and product development brand. We build digital products, AI-enabled solutions, web
-              platforms, and practical automation. Explore FastQue and IRISH, products powered by DCW.
+              platforms, e-commerce experiences, and practical automation. Explore FastQue, IRISH, and Swarnanjali
+              Jewels — a full jewellery e-commerce website designed and developed by DCW Technology.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -61,7 +62,7 @@ export default function HomePage() {
               <div>
                 <p className="text-xs font-semibold tracking-[0.16em] text-[color:var(--accent)] uppercase">Portfolio</p>
                 <h2 id="featured-products-title" className="font-display mt-2 text-xl font-semibold text-white">
-                  Products powered by DCW
+                  Products & platforms by DCW
                 </h2>
               </div>
               <Link href="/products" className="shrink-0 text-sm font-semibold text-cyan-200 hover:text-white">
@@ -87,7 +88,8 @@ export default function HomePage() {
             <div className="ai-panel p-6 sm:p-8">
               <p className="text-lg leading-8 text-[#dbe7f5] sm:text-xl">
                 DCW is the public technology and product development brand at dcw.co.in. Its work centers on practical
-                software, and its current public products are FastQue and IRISH.
+                software, including owned products such as FastQue and IRISH and client-facing digital platforms such as
+                Swarnanjali Jewels.
               </p>
               <Link
                 href="/what-is-dcw"

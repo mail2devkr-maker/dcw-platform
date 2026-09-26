@@ -17,12 +17,18 @@ test("capability statuses are only the allowed public set", () => {
   }
 });
 
-test("DCW public catalog contains FastQue and IRISH without inventing additional launches", () => {
-  assert.equal(products.length, 2);
-  assert.deepEqual(products.map((product) => product.id), ["fastque", "irish"]);
+test("DCW public catalog contains the verified FastQue, IRISH, and Swarnanjali entries", () => {
+  assert.equal(products.length, 3);
+  assert.deepEqual(products.map((product) => product.id), ["fastque", "irish", "swarnanjali-jewels"]);
   assert.equal(products.find((product) => product.id === "fastque")?.status, "live");
   assert.equal(products.find((product) => product.id === "irish")?.status, "development-preview");
-  assert.deepEqual(products.map((product) => product.href), ["https://fastque.com", "https://irish.dcw.co.in"]);
+  assert.equal(products.find((product) => product.id === "swarnanjali-jewels")?.status, "live");
+  assert.deepEqual(products.map((product) => product.href), [
+    "https://fastque.com",
+    "https://irish.dcw.co.in",
+    "https://swarnanjalijewels.in",
+  ]);
+  assert.match(products.find((product) => product.id === "swarnanjali-jewels")?.relationshipLabel ?? "", /DCW Technology/);
   assert.ok(products.every((product) => product.category && product.summary && product.ctaLabel && product.statusLabel));
 });
 

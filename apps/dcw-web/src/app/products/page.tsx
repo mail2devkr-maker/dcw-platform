@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Products",
-  description: "Discover FastQue, DCW's live salon and barbershop platform, and IRISH, a development preview for AI-assisted software missions.",
+  description: "Explore DCW products and digital platforms, including FastQue, IRISH, and the Swarnanjali Jewels full e-commerce website designed and developed by DCW Technology.",
   path: "/products",
 });
 
@@ -27,7 +27,7 @@ export default function ProductsPage() {
       {
         "@type": "ItemList",
         "@id": `${dcwUrl}/products#product-list`,
-        name: "Products powered by DCW",
+        name: "Products and digital platforms by DCW",
         itemListElement: products.map((product, index) => ({
           "@type": "ListItem",
           position: index + 1,
@@ -60,11 +60,12 @@ export default function ProductsPage() {
           The DCW portfolio
         </div>
         <h1 className="font-display mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl">
-          Two products. Different problems. One technology brand.
+          Three builds. Different problems. One technology brand.
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--ink-muted)]">
-          FastQue and IRISH are products powered by DCW. Their current status and official destinations are stated
-          plainly; work that is not ready to describe is not presented as a launched product.
+          FastQue and IRISH are products powered by DCW. Swarnanjali Jewels is a live full e-commerce website designed
+          and developed by DCW Technology, combining a premium jewellery storefront with end-to-end commerce flows.
+          Current status and official destinations are stated plainly.
         </p>
 
         <div className="mt-12">
