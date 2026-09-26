@@ -11,6 +11,8 @@ test("DCW sitemap lists canonical discovery, product, and trust pages without fa
   assert.ok(urls.includes(`${siteUrl("dcw")}/what-is-dcw`));
   assert.ok(urls.includes(`${siteUrl("dcw")}/products`));
   assert.ok(urls.includes(`${siteUrl("dcw")}/products/swarnanjali-jewels`));
+  assert.ok(urls.includes(`${siteUrl("dcw")}/products/lam360`));
+  assert.ok(urls.includes(`${siteUrl("dcw")}/products/ashengrid`));
   assert.ok(urls.includes(`${siteUrl("dcw")}/privacy`));
   assert.ok(entries.every((entry) => entry.lastModified === undefined));
 });
