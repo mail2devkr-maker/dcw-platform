@@ -1,12 +1,19 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { nextHeaderSource, securityHeaders } from "./headers.ts";
-import { apexRedirectTarget, isPrivilegedHost, PUBLIC_IRISH } from "./hosts.ts";
+import { apexRedirectTarget, isPrivilegedHost, publicProductRouteForHost, PUBLIC_ASHENGRID, PUBLIC_IRISH, PUBLIC_LAM360 } from "./hosts.ts";
 
 test("www permanently maps to apex", () => {
   assert.equal(apexRedirectTarget("www.dcw.co.in"), "https://dcw.co.in");
   assert.equal(apexRedirectTarget("dcw.co.in"), null);
   assert.equal(apexRedirectTarget("irish.dcw.co.in"), null);
+});
+
+test("development product subdomains map only to their public landing routes", () => {
+  assert.equal(publicProductRouteForHost(PUBLIC_LAM360), "/products/lam360");
+  assert.equal(publicProductRouteForHost(PUBLIC_ASHENGRID), "/products/ashengrid");
+  assert.equal(publicProductRouteForHost("dcw.co.in"), null);
+  assert.equal(publicProductRouteForHost("mcp.dcw.co.in"), null);
 });
 
 test("privileged hosts are never treated as public irish", () => {
