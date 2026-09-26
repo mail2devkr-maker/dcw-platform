@@ -9,6 +9,9 @@ export type Product = {
   statusLabel: string;
   summary: string;
   ctaLabel: string;
+  relationshipLabel?: string;
+  detailsHref?: string;
+  highlights?: readonly string[];
 };
 
 export const products: readonly Product[] = [
@@ -33,6 +36,26 @@ export const products: readonly Product[] = [
     summary:
       "Local-first AI for software missions, with bounded execution, verifiable evidence, and a public read-only demo.",
     ctaLabel: "Explore IRISH",
+  },
+  {
+    id: "swarnanjali-jewels",
+    name: "Swarnanjali Jewels",
+    category: "Luxury jewellery e-commerce platform",
+    href: "https://swarnanjalijewels.in",
+    status: "live",
+    statusLabel: "Live commerce site",
+    summary:
+      "A premium full e-commerce experience for jewellery discovery and shopping, spanning bridal, diamond, gold and silver collections with certified-product trust, customer purchase flows, and KISNA catalogue integration.",
+    ctaLabel: "Visit Swarnanjali Jewels",
+    relationshipLabel: "Designed & developed by DCW Technology",
+    detailsHref: "/products/swarnanjali-jewels",
+    highlights: [
+      "Full e-commerce shopping experience",
+      "Product catalogue, collections, search and discovery",
+      "Customer account, wishlist, cart and checkout flows",
+      "KISNA authorized dealer catalogue integration",
+      "Responsive, SEO-ready luxury storefront",
+    ],
   },
 ];
 
