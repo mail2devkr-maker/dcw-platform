@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/what-is-dcw", priority: 0.95, changeFrequency: "monthly" as const },
     { path: "/products", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/products/swarnanjali-jewels", priority: 0.82, changeFrequency: "monthly" as const },
+    { path: "/products/lam360", priority: 0.78, changeFrequency: "monthly" as const },
+    { path: "/products/ashengrid", priority: 0.78, changeFrequency: "monthly" as const },
     { path: "/capabilities", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/principles", priority: 0.6, changeFrequency: "monthly" as const },
