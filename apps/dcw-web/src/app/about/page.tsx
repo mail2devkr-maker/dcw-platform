@@ -33,17 +33,19 @@ export default function AboutPage() {
                 software that solves a concrete problem and can keep evolving.
               </p>
               <p>
-                FastQue and IRISH represent two different directions inside that model: one is an operating product for
-                salon businesses and customers, while the other explores AI-assisted project execution.
+                FastQue and IRISH represent two different product directions inside that model: one is an operating
+                platform for salon businesses and customers, while the other explores AI-assisted project execution.
+                Swarnanjali Jewels shows the same product discipline applied to a client-facing luxury e-commerce
+                platform.
               </p>
               <p>
-                The public portfolio currently names FastQue and IRISH. DCW keeps product descriptions tied to work
-                that can be explored on its own official destination.
+                The public portfolio currently names FastQue, IRISH, and Swarnanjali Jewels. DCW keeps descriptions
+                tied to work that can be explored on its own official destination.
               </p>
               <p>
                 For the concise organization and product relationship, read{" "}
                 <Link href="/what-is-dcw" className="font-semibold text-cyan-200 underline decoration-cyan-200/40 underline-offset-4 hover:text-white">
-                  what DCW is and how FastQue and IRISH relate to it
+                  what DCW is and how its products and platforms relate to it
                 </Link>.
               </p>
             </div>
