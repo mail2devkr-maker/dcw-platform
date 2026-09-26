@@ -38,6 +38,30 @@ export const products: readonly Product[] = [
     ctaLabel: "Explore IRISH",
   },
   {
+    id: "lam360",
+    name: "LAM360",
+    category: "Privacy-first remote monitoring platform",
+    href: "https://lam360.dcw.co.in",
+    status: "development-preview",
+    statusLabel: "In development",
+    summary:
+      "A privacy-first camera and viewer platform for owner-started remote monitoring, being developed around secure pairing, WebRTC live viewing, reconnect, media controls, and cross-platform mobile support.",
+    ctaLabel: "Explore LAM360",
+    relationshipLabel: "DCW product · In development",
+  },
+  {
+    id: "ashengrid",
+    name: "ASHENGRID: SURVIVAL",
+    category: "Portrait survival shooter",
+    href: "https://ashengrid.dcw.co.in",
+    status: "development-preview",
+    statusLabel: "In development",
+    summary:
+      "An original one-hand portrait 3D survival shooter by DCW Games, combining fast combat with persistent shelter progression in a collapsed near-future world.",
+    ctaLabel: "Explore ASHENGRID",
+    relationshipLabel: "DCW Games · In development",
+  },
+  {
     id: "swarnanjali-jewels",
     name: "Swarnanjali Jewels",
     category: "Luxury jewellery e-commerce platform",
