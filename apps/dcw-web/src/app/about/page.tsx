@@ -35,12 +35,13 @@ export default function AboutPage() {
               <p>
                 FastQue and IRISH represent two different product directions inside that model: one is an operating
                 platform for salon businesses and customers, while the other explores AI-assisted project execution.
-                Swarnanjali Jewels shows the same product discipline applied to a client-facing luxury e-commerce
-                platform.
+                LAM360 extends that work into privacy-first remote monitoring, while ASHENGRID: SURVIVAL is DCW Games'
+                original portrait survival-shooter project. Swarnanjali Jewels shows the same product discipline applied
+                to a client-facing luxury e-commerce platform.
               </p>
               <p>
-                The public portfolio currently names FastQue, IRISH, and Swarnanjali Jewels. DCW keeps descriptions
-                tied to work that can be explored on its own official destination.
+                The public portfolio currently names FastQue, IRISH, LAM360, ASHENGRID: SURVIVAL, and Swarnanjali
+                Jewels. In-development products are labeled as such, and each has an official DCW destination.
               </p>
               <p>
                 For the concise organization and product relationship, read{" "}
