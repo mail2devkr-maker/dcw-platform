@@ -3,7 +3,7 @@ export const DCW = {
   publicName: "DCW",
   tagline: "Technology and product development for practical work.",
   definition:
-    "DCW is a technology and product development brand focused on digital products, AI-enabled solutions, web platforms, business automation systems, and practical software ventures. FastQue and IRISH are products powered by DCW.",
+    "DCW is a technology and product development brand focused on digital products, AI-enabled solutions, web platforms, business automation systems, games, and practical software ventures. FastQue and IRISH are products powered by DCW; LAM360 and ASHENGRID: SURVIVAL are active products in development.",
 } as const;
 
 export const IRISH = {
@@ -20,6 +20,8 @@ export const PUBLIC_HOSTS = {
   dcw: "dcw.co.in",
   dcwWww: "www.dcw.co.in",
   irish: "irish.dcw.co.in",
+  lam360: "lam360.dcw.co.in",
+  ashengrid: "ashengrid.dcw.co.in",
 } as const;
 
 export const PRIVILEGED_HOSTS = {
@@ -30,6 +32,8 @@ export const PRIVILEGED_HOSTS = {
 export const PUBLIC_URLS = {
   dcw: "https://dcw.co.in",
   irish: "https://irish.dcw.co.in",
+  lam360: "https://lam360.dcw.co.in",
+  ashengrid: "https://ashengrid.dcw.co.in",
   githubIrish: "https://github.com/mail2devkr-maker/irish",
 } as const;
 
