@@ -23,9 +23,9 @@ const faqs = [
       "DCW builds digital products, AI-enabled solutions, web and mobile platforms, business automation systems, and practical software ventures.",
   },
   {
-    question: "Which products are powered by DCW?",
+    question: "Which products and platforms are built by DCW?",
     answer:
-      "FastQue and IRISH are products powered by DCW. FastQue is a live salon booking, queue, and operations platform, while IRISH is an AI Project Execution Platform in active development.",
+      "FastQue and IRISH are products powered by DCW. Swarnanjali Jewels is a live full e-commerce website designed and developed by DCW Technology for premium jewellery discovery and shopping.",
   },
   {
     question: "Is this DCW the same as DCW Limited?",
@@ -125,8 +125,8 @@ export default function WhatIsDcwPage() {
                 <dd className="mt-1 font-semibold text-white">AI, digital products, platforms & automation</dd>
               </div>
               <div>
-                <dt className="text-[color:var(--ink-muted)]">Products</dt>
-                <dd className="mt-1 font-semibold text-white">FastQue · IRISH</dd>
+                <dt className="text-[color:var(--ink-muted)]">Featured builds</dt>
+                <dd className="mt-1 font-semibold text-white">FastQue · IRISH · Swarnanjali Jewels</dd>
               </div>
               <div>
                 <dt className="text-[color:var(--ink-muted)]">Official web identity</dt>
@@ -149,8 +149,9 @@ export default function WhatIsDcwPage() {
             <div className="space-y-5 text-lg leading-8 text-[color:var(--ink-muted)]">
               <p>
                 <strong className="text-white">This DCW is the technology and product development brand behind FastQue
-                and IRISH.</strong> It focuses on building software products, AI-enabled systems, web platforms, mobile
-                experiences, automation, and emerging software ventures.
+                and IRISH, and the team that designed and developed the Swarnanjali Jewels e-commerce platform.</strong>{" "}
+                It focuses on building software products, AI-enabled systems, web platforms, mobile experiences,
+                e-commerce, automation, and emerging software ventures.
               </p>
               <p>
                 It is <strong className="text-white">not affiliated with DCW Limited</strong>, the Indian chemical
@@ -165,10 +166,10 @@ export default function WhatIsDcwPage() {
       <section>
         <Container className="py-16 sm:py-24">
           <p className="text-xs font-semibold tracking-[0.18em] text-[color:var(--accent)] uppercase">
-            Products powered by DCW
+            Products & platforms by DCW
           </p>
           <h2 className="font-display mt-3 max-w-3xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">
-            Products make the brand concrete.
+            Real products and platforms make the brand concrete.
           </h2>
 
           <div className="mt-10">
