@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Products",
-  description: "Explore DCW products and digital platforms, including FastQue, IRISH, and the Swarnanjali Jewels full e-commerce website designed and developed by DCW Technology.",
+  description: "Explore DCW products and digital platforms, including FastQue, IRISH, LAM360, ASHENGRID: SURVIVAL, and the Swarnanjali Jewels full e-commerce website designed and developed by DCW Technology.",
   path: "/products",
 });
 
@@ -60,12 +60,12 @@ export default function ProductsPage() {
           The DCW portfolio
         </div>
         <h1 className="font-display mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl">
-          Three builds. Different problems. One technology brand.
+          Five builds. Different problems. One technology brand.
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--ink-muted)]">
-          FastQue and IRISH are products powered by DCW. Swarnanjali Jewels is a live full e-commerce website designed
-          and developed by DCW Technology, combining a premium jewellery storefront with end-to-end commerce flows.
-          Current status and official destinations are stated plainly.
+          FastQue and IRISH are products powered by DCW. LAM360 and ASHENGRID: SURVIVAL are active products in
+          development, each with its own DCW subdomain. Swarnanjali Jewels is a live full e-commerce website designed
+          and developed by DCW Technology. Current status and official destinations are stated plainly.
         </p>
 
         <div className="mt-12">
@@ -75,7 +75,7 @@ export default function ProductsPage() {
         <p className="mt-10 max-w-3xl leading-7 text-[color:var(--ink-muted)]">
           Want the short explanation of the organization behind these products?{" "}
           <Link href="/what-is-dcw" className="font-semibold text-cyan-200 underline decoration-cyan-200/40 underline-offset-4 hover:text-white">
-            Read what DCW is and how FastQue and IRISH relate to it.
+            Read what DCW is and how its products and platforms relate to it.
           </Link>
         </p>
       </Container>

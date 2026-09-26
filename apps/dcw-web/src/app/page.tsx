@@ -30,8 +30,9 @@ export default function HomePage() {
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[color:var(--ink-muted)] sm:text-xl">
               DCW is a technology and product development brand. We build digital products, AI-enabled solutions, web
-              platforms, e-commerce experiences, and practical automation. Explore FastQue, IRISH, and Swarnanjali
-              Jewels — a full jewellery e-commerce website designed and developed by DCW Technology.
+              platforms, e-commerce experiences, games, and practical automation. Explore FastQue and IRISH, plus
+              LAM360 and ASHENGRID: SURVIVAL as active products in development. Swarnanjali Jewels is a full jewellery
+              e-commerce website designed and developed by DCW Technology.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -88,8 +89,8 @@ export default function HomePage() {
             <div className="ai-panel p-6 sm:p-8">
               <p className="text-lg leading-8 text-[#dbe7f5] sm:text-xl">
                 DCW is the public technology and product development brand at dcw.co.in. Its work centers on practical
-                software, including owned products such as FastQue and IRISH and client-facing digital platforms such as
-                Swarnanjali Jewels.
+                software, including FastQue and IRISH, active in-development products LAM360 and ASHENGRID: SURVIVAL,
+                and client-facing digital platforms such as Swarnanjali Jewels.
               </p>
               <Link
                 href="/what-is-dcw"

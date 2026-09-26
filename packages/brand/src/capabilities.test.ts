@@ -17,15 +17,19 @@ test("capability statuses are only the allowed public set", () => {
   }
 });
 
-test("DCW public catalog contains the verified FastQue, IRISH, and Swarnanjali entries", () => {
-  assert.equal(products.length, 3);
-  assert.deepEqual(products.map((product) => product.id), ["fastque", "irish", "swarnanjali-jewels"]);
+test("DCW public catalog contains live and explicitly labeled in-development builds", () => {
+  assert.equal(products.length, 5);
+  assert.deepEqual(products.map((product) => product.id), ["fastque", "irish", "lam360", "ashengrid", "swarnanjali-jewels"]);
   assert.equal(products.find((product) => product.id === "fastque")?.status, "live");
   assert.equal(products.find((product) => product.id === "irish")?.status, "development-preview");
+  assert.equal(products.find((product) => product.id === "lam360")?.status, "development-preview");
+  assert.equal(products.find((product) => product.id === "ashengrid")?.status, "development-preview");
   assert.equal(products.find((product) => product.id === "swarnanjali-jewels")?.status, "live");
   assert.deepEqual(products.map((product) => product.href), [
     "https://fastque.com",
     "https://irish.dcw.co.in",
+    "https://lam360.dcw.co.in",
+    "https://ashengrid.dcw.co.in",
     "https://swarnanjalijewels.in",
   ]);
   assert.match(products.find((product) => product.id === "swarnanjali-jewels")?.relationshipLabel ?? "", /DCW Technology/);
@@ -35,12 +39,15 @@ test("DCW public catalog contains the verified FastQue, IRISH, and Swarnanjali e
 test("DCW definition names only the verified public products", () => {
   assert.match(DCW.definition, /technology and product development brand/);
   assert.match(DCW.definition, /FastQue and IRISH are products powered by DCW/);
-  assert.doesNotMatch(DCW.definition, /ASHENGRID|LAM360|emerging projects/i);
+  assert.match(DCW.definition, /LAM360/);
+  assert.match(DCW.definition, /ASHENGRID/);
 });
 
 test("privileged hosts stay off the public website hostnames", () => {
   assert.equal(PUBLIC_HOSTS.dcw, "dcw.co.in");
   assert.equal(PUBLIC_HOSTS.irish, "irish.dcw.co.in");
+  assert.equal(PUBLIC_HOSTS.lam360, "lam360.dcw.co.in");
+  assert.equal(PUBLIC_HOSTS.ashengrid, "ashengrid.dcw.co.in");
   assert.equal(PRIVILEGED_HOSTS.mcp, "mcp.dcw.co.in");
   assert.equal(PRIVILEGED_HOSTS.auth, "auth.dcw.co.in");
   assert.notEqual(PRIVILEGED_HOSTS.mcp, PUBLIC_HOSTS.irish);

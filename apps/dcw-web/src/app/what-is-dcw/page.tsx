@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "Which products and platforms are built by DCW?",
     answer:
-      "FastQue and IRISH are products powered by DCW. Swarnanjali Jewels is a live full e-commerce website designed and developed by DCW Technology for premium jewellery discovery and shopping.",
+      "FastQue and IRISH are products powered by DCW. LAM360 and ASHENGRID: SURVIVAL are active products in development. Swarnanjali Jewels is a live full e-commerce website designed and developed by DCW Technology for premium jewellery discovery and shopping.",
   },
   {
     question: "Is this DCW the same as DCW Limited?",
@@ -126,7 +126,7 @@ export default function WhatIsDcwPage() {
               </div>
               <div>
                 <dt className="text-[color:var(--ink-muted)]">Featured builds</dt>
-                <dd className="mt-1 font-semibold text-white">FastQue · IRISH · Swarnanjali Jewels</dd>
+                <dd className="mt-1 font-semibold text-white">FastQue · IRISH · LAM360 · ASHENGRID · Swarnanjali Jewels</dd>
               </div>
               <div>
                 <dt className="text-[color:var(--ink-muted)]">Official web identity</dt>
@@ -149,9 +149,9 @@ export default function WhatIsDcwPage() {
             <div className="space-y-5 text-lg leading-8 text-[color:var(--ink-muted)]">
               <p>
                 <strong className="text-white">This DCW is the technology and product development brand behind FastQue
-                and IRISH, and the team that designed and developed the Swarnanjali Jewels e-commerce platform.</strong>{" "}
-                It focuses on building software products, AI-enabled systems, web platforms, mobile experiences,
-                e-commerce, automation, and emerging software ventures.
+                and IRISH, with LAM360 and ASHENGRID: SURVIVAL actively in development, and the team that designed and
+                developed the Swarnanjali Jewels e-commerce platform.</strong>{" "}It focuses on building software
+                products, AI-enabled systems, web platforms, mobile experiences, games, e-commerce, and automation.
               </p>
               <p>
                 It is <strong className="text-white">not affiliated with DCW Limited</strong>, the Indian chemical
